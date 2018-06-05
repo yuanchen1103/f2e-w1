@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="21px" height="21px" viewBox="0 0 21 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-339.000000, -233.000000)">
+            <g id="Group-Copy-4" transform="translate(330.000000, 215.000000)">
+                <g id="Group-2" transform="translate(10.000000, 19.000000)">
+                    <circle id="Oval" stroke="#B8E986" fill="#FFFFFF" cx="9.5" cy="9.5" r="9.5"></circle>
+                    <g id="checked" transform="translate(5.000000, 6.000000)" fill="#B8E986" fill-rule="nonzero">
+                        <path d="M3.41948886,6.839 C3.226643,6.839 3.03359665,6.76544368 2.88648401,6.61821967 L0.220836025,3.95257168 C-0.0736120085,3.65812365 -0.0736120085,3.18080953 0.220836025,2.88636149 C0.515284059,2.59191346 0.992598178,2.59191346 1.28704621,2.88636149 L3.41948886,5.01880414 L8.2175795,0.220802612 C8.51202753,-0.0735563165 8.98945303,-0.0736454216 9.28370058,0.220802612 C9.57823772,0.515250646 9.57823772,0.992676146 9.28370058,1.2870128 L3.95260509,6.61821967 C3.80538108,6.76535458 3.61242383,6.839 3.41948886,6.839 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

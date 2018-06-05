@@ -1,0 +1,156 @@
+* {
+  font-family: 'Lato', sans-serif;
+}
+
+html,
+body {
+  background-color: #000231;
+}
+
+.main-card {
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  background-color: #ffffff;
+  width: 423px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 60px;
+  border-radius: 5px;
+}
+
+.date {
+  font-size: 48px;
+  color: #000231;
+  letter-spacing: 0;
+  display: inline-block;
+}
+
+.month-year {
+  display: inline-block;
+}
+
+.month {
+  font-size: 14px;
+  color: #000231;
+  letter-spacing: 0;
+}
+
+.year {
+  font-size: 14px;
+  color: #000231;
+  letter-spacing: 0;
+}
+
+.day {
+  font-size: 16px;
+  color: #000231;
+  letter-spacing: 0;
+  display: inline-block;
+  margin-left: 200px;
+}
+
+input {
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 0;
+  border: 1px solid #E3E3E3;
+  width: 288px;
+  transition: all 0.4s;
+}
+
+input:focus {
+  outline: 0;
+  border: 1px solid #7413D3;
+}
+
+.warn {
+  border: 1px solid #F66754;
+}
+
+button {
+  width: 58px;
+  height: 37px;
+  border-radius: 5px;
+  border: 0;
+  background: linear-gradient(-180deg, #7307F9 0%, #7413D3 98%);
+  margin-left: 12px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+button:hover {
+  background: linear-gradient(-180deg, #7A13F8 0%, #7B1FD5 98%);
+}
+
+.item {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: all 0.4s;
+}
+
+.item:hover {
+  background-color: #FBFBFB;
+}
+
+.item p {
+  color: #5E565A;
+  margin-bottom: 0;
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.item .circle {
+  position: absolute;
+  margin-top: 2px;
+}
+
+.item .delete {
+  margin-right: 10px;
+  height: 16px;
+}
+
+.item .star {
+  height: 16px;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: #7413D3;
+  margin-top: 20px;
+}
+
+.filter {
+  margin-top: 10px;
+  padding-left: 10px;
+}
+
+.filter p {
+  margin-bottom: 0;
+  color: #9B9B9B;
+  display: inline-block;
+  margin-right: 30px;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+.filter .active {
+  color: #7413D3;
+}
+
+.filter p:hover {
+  color: #7413D3;
+}

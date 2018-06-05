@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Star</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-659.000000, -236.000000)" stroke="#5E565A">
+            <path d="M671.23669,249.784255 L670.451427,245.205822 L673.777854,241.963357 L669.180845,241.295372 L667.125,237.129776 L665.069155,241.295372 L660.472146,241.963357 L663.798573,245.205822 L663.01331,249.784255 L667.125,247.622612 L671.23669,249.784255 Z M664.40509,240.381365 L664.665223,240.343565 L664.288754,240.617086 L664.40509,240.381365 Z" id="Star"></path>
+        </g>
+    </g>
+</svg>
