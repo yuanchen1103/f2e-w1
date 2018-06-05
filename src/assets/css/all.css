@@ -47,8 +47,8 @@ body {
   font-size: 16px;
   color: #000231;
   letter-spacing: 0;
-  display: inline-block;
-  margin-left: 200px;
+  margin-top: 35px;
+  float: right;
 }
 
 input {
@@ -153,4 +153,13 @@ button:hover {
 
 .filter p:hover {
   color: #7413D3;
+}
+
+.comment-item {
+  border-bottom: 1px solid #E3E3E3;
+  width: 250px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 10px;
+  font-size: 14px;
 }

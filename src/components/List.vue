@@ -1,12 +1,12 @@
 <template>
-  <div class="item">
-    <img src="../assets/img/circle.svg" alt="" class="circle" v-if="!todo.completed" @click="completeTodo(todo)">
-    <img src="../assets/img/check.svg" alt="" class="circle" v-if="todo.completed" @click="cancelTodo(todo)">
+  <div class="item" @click="showDetail(todo)">
+    <img src="../assets/img/circle.svg" alt="" class="circle" v-if="!todo.completed" @click.stop="completeTodo(todo)">
+    <img src="../assets/img/check.svg" alt="" class="circle" v-if="todo.completed" @click.stop="cancelTodo(todo)">
     <p style="display: inline-block;">{{ todo.title }}</p>
     <div style="display: inline-block; float: right;">
-      <img src="../assets/img/delete.svg" alt="" class="delete" @click="deleteTodo(todo)">
-      <img src="../assets/img/star-blank.svg" alt="" class="star" v-if="!todo.important" @click="starTodo(todo)">
-      <img src="../assets/img/star-fill.svg" alt="" class="star" v-if="todo.important" @click="unstarTodo(todo)">
+      <img src="../assets/img/delete.svg" alt="" class="delete" @click.stop="deleteTodo(todo)">
+      <img src="../assets/img/star-blank.svg" alt="" class="star" v-if="!todo.important" @click.stop="starTodo(todo)">
+      <img src="../assets/img/star-fill.svg" alt="" class="star" v-if="todo.important" @click.stop="unstarTodo(todo)">
     </div>
     <div style="font-size: 10px; color: #E3E3E3; margin-top: 5px;">
       <i class="far fa-comment" style="margin-left: 40px;"></i>
@@ -39,6 +39,9 @@ export default {
     },
     unstarTodo(todo) {
       this.$emit('unstar-todo', todo);
+    },
+    showDetail(todo) {
+      this.$emit('show-detail', todo);
     }
   }
 };

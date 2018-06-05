@@ -12,27 +12,27 @@
          <div class="day">{{ day }}</div>
       </div>
       <div style="margin-bottom: 20px;">
-         <input type="text" v-model="text" placeholder="Go to a Movie..." :class="{warn: textBlank}">
+         <input type="text" v-model="text" placeholder="Go to a Movie..." :class="{warn: textBlank}" @keyup.enter="addTodo">
          <button @click="addTodo">
             <img src="./assets/img/plus-icon.svg" alt="" style="height: 15px;">
          </button>
       </div>
       <!-- all -->
       <div v-if="allFilter">
-        <List v-for="todo in importantFilterAll" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo"/>
-        <List v-for="todo in unimportantFilterAll" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo"/>
+        <List v-for="todo in importantFilterAll" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo" @show-detail="showDetail"/>
+        <List v-for="todo in unimportantFilterAll" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo" @show-detail="showDetail"/>
       </div>
 
       <!-- todo -->
       <div v-if="todoFilter">
-        <List v-for="todo in importantFilterTodo" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo"/>
-        <List v-for="todo in unimportantFilterTodo" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo"/>
+        <List v-for="todo in importantFilterTodo" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo" @show-detail="showDetail"/>
+        <List v-for="todo in unimportantFilterTodo" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo" @show-detail="showDetail"/>
       </div>
 
       <!-- completed -->
       <div v-if="completedFilter">
-        <List v-for="todo in importantFilterCompleted" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo"/>
-        <List v-for="todo in unimportantFilterCompleted" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo"/>
+        <List v-for="todo in importantFilterCompleted" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo" @show-detail="showDetail"/>
+        <List v-for="todo in unimportantFilterCompleted" :key="todo.index" :todo="todo" @complete-todo="completeTodo" @cancel-todo="cancelTodo" @delete-todo="deleteTodo" @star-todo="starTodo" @unstar-todo="unstarTodo" @show-detail="showDetail"/>
       </div>
 
       <div class="line"></div>
@@ -42,6 +42,27 @@
          <p @click="sortCompleted" :class="{ active: completedFilter }">Completed</p>
       </div>
     </div>
+
+    <modal name="modal" :height="'auto'" :width="300" :scrollable="true" @before-open="beforeOpen" :clickToClose="false">
+      <div style="margin-left: 20px; margin-right: 20px; padding-bottom: 20px;">
+        <p style="margin-top: 30px; text-align: center; font-size: 18px; margin-bottom: 0;" v-if="!isEdit">{{ modalData.title }}</p>
+        <input type="text" placeholder="ex: 2018-06-12" style="width: 260px; margin-top: 30px; margin-bottom: 10px;" v-model="modalData.title" v-if="isEdit">
+        <p v-if="!isEdit" @click="editTodo" style="text-align: center; font-size:12px; margin-bottom: 10px; color: #b8b8b8; cursor: pointer"><i class="far fa-edit"></i></p>
+        <p style="margin-bottom: 5px; margin-left: 5px;">Date:</p>
+        <input type="text" placeholder="ex: 2018-06-12" style="width: 260px;" v-model="modalData.date">
+        <p style="margin-bottom: 5px; margin-left: 5px; margin-top: 20px;">Comments:</p>
+        <input type="text" placeholder="Add..." style="width: 260px;" @keyup.enter="addComments()" v-model="commentText">
+        <div v-for="item in modalData.comments" :key="item.index">
+          <div class="comment-item">
+            <span>{{item}}</span>
+            <img src="./assets/img/delete.svg" alt="" style="height: 14px; float: right; margin-top: 5px; cursor: pointer;" @click.stop="deleteComment(item)">
+          </div>
+        </div>
+        <button style="width: 260px; margin-left: 0; margin-top: 20px; color: #fff;" @click="closeDetail">Close and Save</button>
+      </div>
+
+
+    </modal>
   </div>
 </template>
 
@@ -56,35 +77,38 @@ export default {
   },
   data () {
     return {
+      isEdit: false,
       text: '',
       textBlank: false,
       allFilter: true,
       todoFilter: false,
       completedFilter: false,
+      modalData: {},
+      commentText: '',
       todos: [
         {
           title: 'Have a lunch with Kate',
           completed: false,
           important: true,
           comments: [
-            '123',
-            '456'
+            '6:00pm',
+            'the new restaurant'
           ],
-          date: ''
+          date: '2018-06-04'
         },
         {
           title: 'Do my homework',
           completed: false,
           important: false,
           comments: [],
-          date: '2018-03-19'
+          date: '2018-06-02'
         },
         {
           title: 'Prepare tests',
           completed: true,
           important: false,
           comments: [],
-          date: '2018-03-19'
+          date: '2018-06-01'
         },
       ]
     }
@@ -168,10 +192,38 @@ export default {
       this.todoFilter = true;
       this.completedFilter = false;
     },
+    editTodo() {
+      this.isEdit = true;
+    },
     sortCompleted() {
       this.allFilter = false;
       this.todoFilter = false;
       this.completedFilter = true;
+    },
+    showDetail(todo) {
+      const todoIndex = this.todos.indexOf(todo);
+      this.$modal.show('modal', { todo: todo, todoIndex: todoIndex});
+    },
+    closeDetail() {
+      this.$modal.hide('modal');
+      this.isEdit = false;
+    },
+    beforeOpen(event) {
+      this.modalData = event.params.todo;
+      this.modalData.index = event.params.todoIndex;
+    },
+    addComments() {
+      if(this.commentText === ''){
+        console.log('blank')
+      }
+      else {
+        this.todos[this.modalData.index].comments.unshift(this.commentText);
+        this.commentText = '';
+      }
+    },
+    deleteComment(item) {
+      const commentIndex = this.todos[this.modalData.index].comments.indexOf(item);
+      this.todos[this.modalData.index].comments.splice(commentIndex, 1);
     }
   }
 }
