@@ -14,7 +14,8 @@
       <div style="margin-bottom: 20px;">
          <input type="text" v-model="text" placeholder="Go to a Movie..." :class="{warn: textBlank}" @keyup.enter="addTodo">
          <button @click="addTodo">
-            <img src="./assets/img/plus-icon.svg" alt="" style="height: 15px;">
+            <!-- <img src="./assets/img/plus-icon.svg" alt="" style="height: 15px;"> -->
+            <i class="fas fa-plus" style="color: #fff;"></i>
          </button>
       </div>
       <!-- all -->
@@ -55,7 +56,8 @@
         <div v-for="item in modalData.comments" :key="item.index">
           <div class="comment-item">
             <span>{{item}}</span>
-            <img src="./assets/img/delete.svg" alt="" style="height: 14px; float: right; margin-top: 5px; cursor: pointer;" @click.stop="deleteComment(item)">
+            <!-- <img src="./assets/img/delete.svg" alt="" style="height: 14px; float: right; margin-top: 5px; cursor: pointer;" @click.stop="deleteComment(item)"> -->
+            <i class="far fa-trash-alt" style="float: right; margin-top: 5px; color: #b8b8b8; cursor: pointer;" @click.stop="deleteComment(item)"></i>
           </div>
         </div>
         <button style="width: 260px; margin-left: 0; margin-top: 20px; color: #fff;" @click="closeDetail">Close and Save</button>
