@@ -1,18 +1,21 @@
-# f2e_1
+# The F2E Challenge Week1 - Todo List
 
-> A Vue.js project
+> Demo Site: https://yuanchen1103.github.io/f2e-w1/  
+> A Practice from The F2E : https://goo.gl/uJheTL
 
-## Build Setup
+## Development Tags
 
-``` bash
-# install dependencies
-npm install
+*   UI/UX
+*   html/css
+*   Vue.js
+*   Javascript ES6
+*   Webpack
+*   moment.js
 
-# serve with hot reload at localhost:8080
-npm run dev
+## Features
 
-# build for production with minification
-npm run build
-```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+*   Add Todo
+*   Delete Todo
+*   Edit Todo
+*   Star Todo
+*   Filter
